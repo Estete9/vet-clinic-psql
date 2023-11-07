@@ -25,6 +25,13 @@ WHERE name NOT IN ('Gabumon');
 SELECT * FROM animals
 WHERE weight_kg >= 10.4 and weight_kg <= 17.3;
 
+-- Inside a transaction update the animals table by setting the species column to unspecified then rollback.
+BEGIN;
+	UPDATE animals
+	SET species = 'undefined'
+	WHERE species IS NULL;
+	ROLLBACK;
+
 -- update species
 	BEGIN;
 	UPDATE animals
