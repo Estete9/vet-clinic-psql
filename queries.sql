@@ -24,3 +24,30 @@ WHERE name NOT IN ('Gabumon');
 -- Find all animals with a weight between 10.4kg and 17.3kg (inclusive)
 SELECT * FROM animals
 WHERE weight_kg >= 10.4 and weight_kg <= 17.3;
+
+-- update species
+	BEGIN;
+	UPDATE animals
+	SET species = 'digimon'
+	WHERE species IS NULL AND name LIKE '%mon';
+	UPDATE animals
+	SET species = 'pokemon'
+	WHERE species IS NULL AND name NOT LIKE '%mon';
+	COMMIT;
+
+-- Remove animals older than 2022-01-01
+BEGIN;
+DELETE FROM animals
+WHERE date_of_birth > '2022-01-01';
+SAVEPOINT REMOVE1;
+-- make all weights negative
+UPDATE animals
+SET weight_kg = weight_kg * -1;
+
+ROLLBACK TO REMOVE1;
+
+-- make all negative weights positive
+UPDATE animals
+SET weight_kg = weight_kg * -1
+WHERE weight_kg < 0;
+COMMIT;
