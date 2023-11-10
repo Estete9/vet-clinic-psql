@@ -58,16 +58,6 @@ CREATE TABLE vets(
   PRIMARY KEY(id)
 );
 
--- create join table for vets / species
-
-CREATE TABLE specializations(
-  vet_id				      INT,
-  species_id          INT,
-  PRIMARY KEY(vet_id, species_id),
-  FOREIGN KEY(vet_id) REFERENCES vets(id),
-  FOREIGN KEY(species_id) REFERENCES species(id)
-);
-
 -- create join table for vets / animals
 
 CREATE TABLE visits(
@@ -77,4 +67,14 @@ CREATE TABLE visits(
   PRIMARY KEY(vet_id, animal_id, date_of_visit),
   FOREIGN KEY(vet_id) REFERENCES vets(id),
   FOREIGN KEY(animal_id) REFERENCES animals(id)
+);
+
+-- create join table for vets / species
+
+CREATE TABLE specializations(
+  vet_id				      INT,
+  species_id          INT,
+  PRIMARY KEY(vet_id, species_id),
+  FOREIGN KEY(vet_id) REFERENCES vets(id),
+  FOREIGN KEY(species_id) REFERENCES species(id)
 );
