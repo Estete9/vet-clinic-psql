@@ -48,3 +48,33 @@ ADD COLUMN owner_id INT,
 ADD CONSTRAINT fk_owner_id
 FOREIGN KEY (owner_id)
 REFERENCES owners(id);
+
+-- create vets table
+CREATE TABLE vets(
+  id				      INT GENERATED ALWAYS AS IDENTITY,
+  name			      VARCHAR(100) NOT NULL,
+  age             INT,
+  date_of_graduation		DATE,
+  PRIMARY KEY(id)
+);
+
+-- create join table for vets / species
+
+CREATE TABLE specializations(
+  vet_id				      INT,
+  species_id          INT,
+  PRIMARY KEY(vet_id, species_id),
+  FOREIGN KEY(vet_id) REFERENCES vets(id),
+  FOREIGN KEY(species_id) REFERENCES species(id)
+);
+
+-- create join table for vets / animals
+
+CREATE TABLE visits(
+  vet_id				      INT,
+  animal_id				      INT,
+  date_of_visit     DATE,
+  PRIMARY KEY(vet_id, animal_id),
+  FOREIGN KEY(vet_id) REFERENCES vets(id),
+  FOREIGN KEY(animal_id) REFERENCES animals(id)
+);
