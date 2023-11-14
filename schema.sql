@@ -78,6 +78,10 @@ CREATE TABLE specializations(
   FOREIGN KEY(species_id) REFERENCES species(id)
 );
 
+-- ADD email column to owners :
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+
 -- modify the visits link table so it is non-clustered and it has a index
 CREATE INDEX animal_id_asc ON visits(animal_id ASC);
-
+-- modify the owners link table so it is non-clustered and it has a index
+CREATE INDEX email_asc ON owners(email_id ASC);
