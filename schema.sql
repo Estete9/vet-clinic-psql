@@ -24,14 +24,6 @@ CREATE TABLE species(
   PRIMARY KEY(id)
 );
 
--- Set "id" as auto-incremented primary key
-ALTER TABLE animals
-ALTER COLUMN id SET GENERATED ALWAYS AS IDENTITY PRIMARY KEY;
-
--- Remove the "species" column
-ALTER TABLE animals
-DROP COLUMN species;
-
 -- Add the "species_id" column as a foreign key
 ALTER TABLE animals
 ADD COLUMN species_id INT,
