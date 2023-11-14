@@ -61,10 +61,11 @@ CREATE TABLE vets(
 -- create join table for vets / animals
 
 CREATE TABLE visits(
-  vet_id				      INT,
-  animal_id				      INT,
+  id                INT GENERATED ALWAYS AS IDENTITY,
+  vet_id				    INT,
+  animal_id				  INT,
   date_of_visit     DATE,
-  PRIMARY KEY(vet_id, animal_id, date_of_visit),
+  PRIMARY KEY(vet_id, animal_id, id),
   FOREIGN KEY(vet_id) REFERENCES vets(id),
   FOREIGN KEY(animal_id) REFERENCES animals(id)
 );
@@ -72,12 +73,13 @@ CREATE TABLE visits(
 -- create join table for vets / species
 
 CREATE TABLE specializations(
+  id                  INT GENERATED ALWAYS AS IDENTITY,
   vet_id				      INT,
   species_id          INT,
-  PRIMARY KEY(vet_id, species_id),
+  PRIMARY KEY(vet_id, species_id, id),
   FOREIGN KEY(vet_id) REFERENCES vets(id),
   FOREIGN KEY(species_id) REFERENCES species(id)
 );
 
 -- ADD email column to owners :
-ALTER TABLE owners DROP COLUMN email VARCHAR(120);
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
