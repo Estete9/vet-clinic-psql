@@ -125,6 +125,11 @@ Make sure eslint-config-airbnb is installed or install with:
 - Twitter: [@NaughTban](https://twitter.com/NaughTban)
 - LinkedIn: [Esteban Palacios](https://www.linkedin.com/in/dev-esteban-palacios/)
 
+👤 **ENSSAH FAYIA MOMOH**
+
+- GitHub: [@efmomoh](https://github.com/efmomoh)
+
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
