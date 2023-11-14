@@ -83,3 +83,6 @@ CREATE TABLE specializations(
 
 -- ADD email column to owners :
 ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+
+-- modify the visits link table so it is non-clustered and it has a index
+CREATE INDEX animal_id_asc ON visits(animal_id ASC);
