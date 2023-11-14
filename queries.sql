@@ -210,19 +210,7 @@ JOIN animals a ON subquery.species_id = a.species_id
 JOIN species s ON a.species_id = s.id
 GROUP BY s.name;
 
--- ENSSAH queries:
--- This will add 3.594.280 visits considering you have 10 animals, 4 vets, and it will use around ~87.000 timestamps (~4min approx.)
-INSERT INTO visits (animal_id, vet_id, date_of_visit)
-SELECT animal_ids.id, vets_ids.id, visit_timestamp
-FROM
-    (SELECT id FROM animals) AS animal_ids,
-    (SELECT id FROM vets) AS vets_ids,
-    generate_series('1980-01-01'::timestamp, '2021-01-01', '4 hours') AS visit_timestamp
-ON CONFLICT (vet_id, animal_id, date_of_visit) DO NOTHING;
-
--- This will add 2.500.000 owners with full_name = 'Owner <X>' and email = 'owner_<X>@email.com' (~2min approx.)
-insert into owners (full_name, email) select 'Owner ' || generate_series(1,2500000), 'owner_' || generate_series(1,2500000) || '@mail.com';
-
+-- ENSSAH queries
 
 EXPLAIN ANALYZE SELECT COUNT(*) FROM visits WHERE animal_id = 4;
 
