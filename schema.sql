@@ -78,3 +78,6 @@ CREATE TABLE specializations(
   FOREIGN KEY(vet_id) REFERENCES vets(id),
   FOREIGN KEY(species_id) REFERENCES species(id)
 );
+
+-- ADD email column to owners :
+ALTER TABLE owners DROP COLUMN email VARCHAR(120);
