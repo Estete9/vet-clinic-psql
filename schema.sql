@@ -11,9 +11,6 @@ CREATE TABLE animals(
   PRIMARY KEY(id)
 );
 
-ALTER TABLE animals
-ADD COLUMN species VARCHAR(100);
-
 CREATE TABLE owners(
   id				      INT GENERATED ALWAYS AS IDENTITY,
   full_name			      VARCHAR(100) NOT NULL,
@@ -81,8 +78,6 @@ CREATE TABLE specializations(
   FOREIGN KEY(species_id) REFERENCES species(id)
 );
 
--- ADD email column to owners :
-ALTER TABLE owners ADD COLUMN email VARCHAR(120);
-
 -- modify the visits link table so it is non-clustered and it has a index
 CREATE INDEX animal_id_asc ON visits(animal_id ASC);
+
