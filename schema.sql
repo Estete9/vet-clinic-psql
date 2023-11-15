@@ -11,9 +11,6 @@ CREATE TABLE animals(
   PRIMARY KEY(id)
 );
 
-ALTER TABLE animals
-ADD COLUMN species VARCHAR(100);
-
 CREATE TABLE owners(
   id				      INT GENERATED ALWAYS AS IDENTITY,
   full_name			      VARCHAR(100) NOT NULL,
@@ -26,14 +23,6 @@ CREATE TABLE species(
   name			      VARCHAR(100) NOT NULL,
   PRIMARY KEY(id)
 );
-
--- Set "id" as auto-incremented primary key
-ALTER TABLE animals
-ALTER COLUMN id SET GENERATED ALWAYS AS IDENTITY PRIMARY KEY;
-
--- Remove the "species" column
-ALTER TABLE animals
-DROP COLUMN species;
 
 -- Add the "species_id" column as a foreign key
 ALTER TABLE animals
@@ -61,10 +50,11 @@ CREATE TABLE vets(
 -- create join table for vets / animals
 
 CREATE TABLE visits(
-  vet_id				      INT,
-  animal_id				      INT,
+  id                INT GENERATED ALWAYS AS IDENTITY,
+  vet_id				    INT,
+  animal_id				  INT,
   date_of_visit     DATE,
-  PRIMARY KEY(vet_id, animal_id, date_of_visit),
+  PRIMARY KEY(vet_id, animal_id, id),
   FOREIGN KEY(vet_id) REFERENCES vets(id),
   FOREIGN KEY(animal_id) REFERENCES animals(id)
 );
@@ -72,9 +62,21 @@ CREATE TABLE visits(
 -- create join table for vets / species
 
 CREATE TABLE specializations(
+  id                  INT GENERATED ALWAYS AS IDENTITY,
   vet_id				      INT,
   species_id          INT,
-  PRIMARY KEY(vet_id, species_id),
+  PRIMARY KEY(vet_id, species_id, id),
   FOREIGN KEY(vet_id) REFERENCES vets(id),
   FOREIGN KEY(species_id) REFERENCES species(id)
 );
+
+-- ADD email column to owners :
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+
+-- modify the visits link table so it is non-clustered and it has a index
+CREATE INDEX animal_id_asc ON visits(animal_id ASC);
+-- modify the owners link table so it is non-clustered and it has a index
+CREATE INDEX email_asc ON owners(email ASC);
+
+-- modifies the visits link table so it is non-clustered and it has an index
+CREATE INDEX vet_id_asc ON visits(vet_id ASC);

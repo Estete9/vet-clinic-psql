@@ -21,7 +21,6 @@
   - [Setup](#setup)
   <!-- - [Install](#install) -->
   - [Usage](#usage)
-  - [Run tests](#run-tests)
 - [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
@@ -39,15 +38,6 @@
 
 ### Tech Stack <a name="tech-stack"></a>
 
-<details>
-  <summary>Client</summary>
-  <ul>
-    <li><a href="https://legacy.reactjs.org/docs/introducing-jsx.html">JS/Babel</a></li>
-    <li><a href="https://sass-lang.com">Modular CSS</a></li>
-    <li><a href="https://reactjs.org/">React</a></li>
-    <li><a href="https://reactjs.org/">Redux</a></li>
-  </ul>
-</details>
   <details>
     <summary>Back End</summary>
 <ul>
@@ -57,21 +47,11 @@
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
-
-<!-- - **Full react app**
-- **Use of Modular CSS**
-- **Use of react components, props and state**
-- **Use of react Router and NavLink**
-- **Redux Store and Slices**
-- **AsyncThunk with Redux** -->
 - PostgreSQL for creating, populating and retrieving table information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- GETTING STARTED -->
-
-<!-- ## 🛠 Live Demo <a name="live-demo"></a>
-Check it out [here]( https://estete9.github.io/money-history/) -->
+<!-- GETTING STARTED --
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
@@ -93,27 +73,11 @@ To run this project you need:
 
 
 <!-- ### Install
-In the root folder, run the script `npm install` to install all the libraries necessary.
-
-Make sure eslint-config-airbnb is installed or install with:
-
-`npm install eslint-config-airbnb eslint-plugin-react eslint-plugin-jsx-a11y eslint-plugin-import --save-dev` -->
+instal psql and postgres
 
 
 ### Usage
-
-#### Live Render
-- Run the script `npm start` to see a live version of the project
-
-
-### Run tests
-
-- Update your `package.json` scripts with "test" to fix axios import bug when testing: 
-  - `"react-scripts test --transformIgnorePatterns \"node_modules/(?!axios)/\""`
-- Use the script `npm run test` to run your tests
-
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+run all the scripts in schema.sql, data.sql and queries.sql
 
 <!-- AUTHORS -->
 
@@ -124,6 +88,11 @@ Make sure eslint-config-airbnb is installed or install with:
 - GitHub: [@Estete9](https://github.com/Estete9)
 - Twitter: [@NaughTban](https://twitter.com/NaughTban)
 - LinkedIn: [Esteban Palacios](https://www.linkedin.com/in/dev-esteban-palacios/)
+
+👤 **ENSSAH FAYIA MOMOH**
+
+- GitHub: [@efmomoh](https://github.com/efmomoh)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
