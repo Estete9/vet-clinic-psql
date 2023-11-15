@@ -77,3 +77,6 @@ ALTER TABLE owners ADD COLUMN email VARCHAR(120);
 CREATE INDEX animal_id_asc ON visits(animal_id ASC);
 -- modify the owners link table so it is non-clustered and it has a index
 CREATE INDEX email_asc ON owners(email ASC);
+
+-- modifies the visits link table so it is non-clustered and it has an index
+CREATE INDEX vet_id_asc ON visits(vet_id ASC);
