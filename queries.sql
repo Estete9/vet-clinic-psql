@@ -210,10 +210,10 @@ JOIN animals a ON subquery.species_id = a.species_id
 JOIN species s ON a.species_id = s.id
 GROUP BY s.name;
 
--- ENSSAH queries
+-- performance queries
 
 EXPLAIN ANALYZE SELECT COUNT(*) FROM visits WHERE animal_id = 4;
 
-SELECT COUNT(*) FROM visits where animal_id = 4;
-SELECT * FROM visits where vet_id = 2;
-SELECT * FROM owners where email = 'owner_18327@mail.com';
+explain analyze SELECT COUNT(*) FROM visits where animal_id = 4;
+explain analyze SELECT * FROM visits where vet_id = 2;
+explain analyze SELECT * FROM owners where email = 'owner_18327@mail.com';
